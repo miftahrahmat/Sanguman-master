@@ -45,8 +45,9 @@ class PenghargaanController extends Controller
         $chefs = 
                 DB::table('chefs')
                 ->leftjoin('users','users.id', '=' ,'user_id')
+                ->leftjoin('orders','orders.id', '=', 'order_id')
                 ->select('chefs.id','user_id','users.name','chefs.created_at',
-                    (DB::raw("SUM(user_id) as total")))
+                    (DB::raw("SUM(order_id) as total")))
                 ->whereBetween('chefs.created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
                 ->groupBy('user_id')
                 ->paginate(5);
