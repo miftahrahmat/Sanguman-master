@@ -48,9 +48,9 @@
                 </div>
             </div>
         </div>
-        <br>
-        <hr>
-        <br>
+    </div>
+
+    <div class="row justify-content-left" style="margin-top: 30px; margin-left: 0px; width: 100%;">
         <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
@@ -88,6 +88,52 @@
                     @if(empty($cek))
                             <div class="alert alert-info">
                                 <center><strong>Riwayat Pesanan Masih Kosong</strong></center>
+                            </div>
+                        @endif
+                    {!! $mubadzir->links(); !!}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="row justify-content-left" style="margin-top: 30px; margin-left: 0px; width: 100%;">
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header">
+                    Data Koki Paling Rajin Priode {{ $time }} - {{ $endtime }}
+                    
+                </div>
+                @if(!empty($cekoki))
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                 <th>No</th>
+                                 <th>Name</th>
+                                 <th>Tanggal</th>
+                            </tr>
+                        </thead>
+                        @foreach ($chefs as $koki)
+                        <tbody>
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+
+                                <td>{{ $koki->name }}</td>
+
+                                <td>{{ $koki->total }} x jadi koki</td>
+
+                                <td>{{ $koki->created_at }}</td>
+
+
+                            </tr>
+                        </tbody>
+                        @endforeach
+                    </table>
+                    @endif
+                    @if(empty($cekoki))
+                            <div class="alert alert-info">
+                                <center><strong>Riwayat Koki Masih Kosong</strong></center>
                             </div>
                         @endif
                     {!! $mubadzir->links(); !!}

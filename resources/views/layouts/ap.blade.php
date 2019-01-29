@@ -115,23 +115,10 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-
-                @if(Auth::check())
-                <a class="navbar-brand" href="" style="margin-top: 15px;">
+                
+                  <a class="navbar-brand" href="{{ url('orders') }}" style="margin-top: 15px;">
                     Sanguman-master</i>
                   </a>
-                <a class="navbar-brand" href="{{ url('orders') }}" style="margin-top: 15px;">
-                  <i>Order</i>
-                </a>
-                
-                <a class="navbar-brand" href="{{ url('/anggota') }}" style="margin-top: 15px;">
-                  <i>Anggota</i>
-                </a>
-
-                <a class="navbar-brand" href="{{ url('/penghargaan') }}" style="margin-top: 15px;">
-                  <i>Penghargaan</i>
-                </a>
-                @endif
                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

@@ -20,11 +20,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-
-        $myuser = auth()->user()->email_verified_at;
        
-        return view('home',compact('myuser','portions'));
+        return view('home');
     }
 
     public function anggota()

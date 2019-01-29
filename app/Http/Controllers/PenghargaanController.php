@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Portion;
 use Carbon\Carbon;
+use App\Models\Chef;
 
 class PenghargaanController extends Controller
 {
@@ -40,11 +41,27 @@ class PenghargaanController extends Controller
                 ->groupBy('user_id')
                 ->paginate(5);
                 $mubadzir = $mubadzir ? $mubadzir : false;
+
+        $chefs = 
+                DB::table('chefs')
+                ->leftjoin('users','users.id', '=' ,'user_id')
+                ->select('chefs.id','user_id','users.name','chefs.created_at',
+                    (DB::raw("SUM(user_id) as total")))
+                ->whereBetween('chefs.created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+                ->groupBy('user_id')
+                ->paginate(5);
+
+        $cekoki = Chef::whereBetween('created_at', [
+            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
+        ]);
+        $cekoki = $cekoki ? $cekoki : null;
         
-        $cek = Portion::whereDate('created_at',Carbon::now())->first();
+        $cek = Portion::whereBetween('created_at', [
+            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
+        ]);
         $cek = $cek ? $cek : null;
         
-        return view('penghargaan',compact('cek','portions','mubadzir','time','endtime'))->with('i', (request()->input('page', 2) - 1) * 1);
+        return view('penghargaan',compact('chefs','cekoki','cek','portions','mubadzir','time','endtime'))->with('i', (request()->input('page', 2) - 1) * 1);
     }
 
 }
