@@ -12,7 +12,7 @@ class PenghargaanController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -30,7 +30,8 @@ class PenghargaanController extends Controller
                 ->whereBetween('portions.created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
                 ->groupBy('user_id')
                 ->paginate(5);
-                    
+        
+        $portions = $portions ? $portions : null;
            
         $mubadzir = 
                 DB::table('portions')
@@ -40,29 +41,19 @@ class PenghargaanController extends Controller
                 ->whereBetween('portions.created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
                 ->groupBy('user_id')
                 ->paginate(5);
-                $mubadzir = $mubadzir ? $mubadzir : false;
-
+        $mubadzir = $mubadzir ? $mubadzir : null;
+        
         $chefs = 
                 DB::table('chefs')
                 ->leftjoin('users','users.id', '=' ,'user_id')
-                ->leftjoin('orders','orders.id', '=', 'order_id')
-                ->select('chefs.id','user_id','users.name','chefs.created_at',
-                    (DB::raw("SUM(order_id) as total")))
+                ->select('user_id','users.name','chefs.created_at',
+                    (DB::raw('COUNT(*) as total')))
                 ->whereBetween('chefs.created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
                 ->groupBy('user_id')
                 ->paginate(5);
+        $chefs = $chefs ? $chefs : null;
 
-        $cekoki = Chef::whereBetween('created_at', [
-            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
-        ]);
-        $cekoki = $cekoki ? $cekoki : null;
-        
-        $cek = Portion::whereBetween('created_at', [
-            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
-        ]);
-        $cek = $cek ? $cek : null;
-        
-        return view('penghargaan',compact('chefs','cekoki','cek','portions','mubadzir','time','endtime'))->with('i', (request()->input('page', 2) - 1) * 1);
+        return view('penghargaan',compact('chefs','portions','mubadzir','time','endtime'))->with('i', (request()->input('page', 2) - 1) * 1);
     }
 
 }

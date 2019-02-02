@@ -55,6 +55,7 @@ class OrderController extends Controller
             Carbon::now()->startOfDay(), Carbon::now()->endOfDay()
         ])->get();
         $pesanan = $pesanan ? $pesanan : null;
+        
 
         return view('orders.index',compact('orders','portions','takelogs','myorder','mychef','myportion','portionss','chef','log','myuser','koki','pesanan'))->with('i', (request()->input('page', 2) - 1) * 1);
         

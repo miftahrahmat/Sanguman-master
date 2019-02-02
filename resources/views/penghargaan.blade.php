@@ -9,7 +9,7 @@
                 <div class="card-header">
                  Data Yang Sering Makan Priode {{ $time }} - {{ $endtime }}
                 </div>
-                @if(!empty($cek))
+                @if(!empty($portions))
                 <div class="card-body">
                 <table class="table table-hover table-striped table-sm" cellspacing="0" width="100%">
                         <thead>
@@ -38,7 +38,7 @@
                         @endforeach
                     </table>
                     @endif
-                     @if(empty($cek))    
+                     @if(empty($portions))    
                         <div class="alert alert-info">
                             <center><strong>Riwayat Orders Masih Kosong</strong></center>
                         </div>
@@ -57,7 +57,7 @@
                     Data Mubadzir makanan Priode {{ $time }} - {{ $endtime }}
                     
                 </div>
-                @if(!empty($cek))
+                @if(!empty($mubadzir))
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead>
@@ -85,7 +85,7 @@
                         @endforeach
                     </table>
                     @endif
-                    @if(empty($cek))
+                    @if(empty($mubadzir))
                             <div class="alert alert-info">
                                 <center><strong>Riwayat Pesanan Masih Kosong</strong></center>
                             </div>
@@ -104,13 +104,14 @@
                     Data Koki Paling Rajin Priode {{ $time }} - {{ $endtime }}
                     
                 </div>
-                @if(!empty($cekoki))
+                @if(!empty($chefs))
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                  <th>No</th>
                                  <th>Name</th>
+                                 <th>Total</th>
                                  <th>Tanggal</th>
                             </tr>
                         </thead>
@@ -130,14 +131,13 @@
                         </tbody>
                         @endforeach
                     </table>
+                      {!! $chefs->links(); !!}
                     @endif
-                    @if(empty($cekoki))
-                            <div class="alert alert-info">
-                                <center><strong>Riwayat Koki Masih Kosong</strong></center>
-                            </div>
-                        @endif
-                    {!! $mubadzir->links(); !!}
-
+                    @if(empty($chefs))
+                        <div class="alert alert-info">
+                            <center><strong>Riwayat Koki Masih Kosong</strong></center>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
