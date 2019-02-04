@@ -91,7 +91,9 @@
                 <!-- Trigger the modal with a button -->
                 <center>
                 @guest
-                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Awas Virus Melware</button></center>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Awas Virus Melware</button>
+                    <a href="http://localhost:3000/docs/en/doc"><button type="button" class="btn btn-info btn-lg">Documentation</button></a>
+                </center>
                 @else
                 @if (Route::has('login'))
                 <button type="block" class="btn btn-default">
@@ -110,6 +112,7 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <h4 class="modal-title" align="center">Sanguman Master Application</h4>
+                                
                             </div>
                             <div class="modal-body">
                                 <div style="margin-left: 200px;">

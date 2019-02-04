@@ -37,7 +37,7 @@ const siteConfig = {
   //   organizationName: 'JoelMarcey'
 
   // For no header links in the top nav bar -> headerLinks: [],
-  headerLinks: [
+  headerLinks:[
     {doc: 'doc', label: 'Documentation'},
     {page: 'help', label: 'Help'},
     {blog: true, label: 'Blog'},
@@ -88,7 +88,7 @@ const siteConfig = {
   // On page navigation for the current documentation page.
   onPageNav: 'separate',
   // No .html extensions for paths.
-  cleanUrl: true,
+  cleanUrl: false,
 
   docsSideNavCollapsible: true,
   enableUpdateBy: true,
