@@ -1,0 +1,9 @@
+{
+  "docs": {
+    "Mulai": ["doc","doc1","profile"],
+    "Penghargaan": ["doc2","doc3","doc4"]
+  },
+  "docs-other": {
+    "First Category": ["doc5"]
+  }
+}

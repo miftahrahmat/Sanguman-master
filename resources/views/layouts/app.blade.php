@@ -162,10 +162,10 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="left:30px; margin:10px; height: 75PX;">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="left:30px; margin:10px; height: 100PX;">
 
                                     <a class="dropdown-item" href="{{ url('/profile') }}" ><ion-icon ios="ios-contact" md="md-contact"></ion-icon> Profil</a>
-
+                                   
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

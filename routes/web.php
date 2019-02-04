@@ -18,7 +18,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/orders/becomeChef', 'OrderController@becomeChef')->name('order.becomeChef')->middleware('verified');
     Route::post('/orders/{id}','OrderController@update')->name('order.update')->middleware('verified');
 
-    Route::get('/orders', 'OrderController@index')->middleware('verified')->middleware('verified');
+    Route::get('/orders', 'OrderController@index')->middleware('verified');
     Route::post('/orders', 'OrderController@store')->name('order.store')->middleware('verified');
     
     // ROUTE UNTUK PROFILE
