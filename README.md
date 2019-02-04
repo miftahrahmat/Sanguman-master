@@ -1,11 +1,6 @@
 # sanguman
-Labs Project sanguman
 
-# Installation
-
-`composer install`
-
-Make sure database has been connected and ready
-
-`php artisan migrate`
+Untuk penggunaannya ada di documentation, untuk membuka documentation silahkan buka terminal dan ketikan 
+" npm run start "
+semoga berhasil :)
 
