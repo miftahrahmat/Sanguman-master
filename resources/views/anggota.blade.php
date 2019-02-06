@@ -16,10 +16,10 @@
                         <thead>
                             <tr>
                                  <th>No</th>
-                                 <th>Name</th>
-                                 <th>Email</th>
                                  <th>Avatar</th>
-                                 <td>Status</td>
+                                 <th>Nama</th>
+                                 <th>Status</th>
+                                 {{-- <td>Action</td> --}}
                             </tr>
                         </thead>
                           @foreach ($users as $user)
@@ -27,19 +27,21 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
 
+                                <td><img src="{{ url('uploads/avatars') }}/{{ $user->avatar }}" class="rounded-circle" width="70px;" height="70px;"></td>
+
                                 <td>{{ $user->name }}</td>
-
-                                <td>{{ $user->email }}</td>
-
-                                <td>
-                                    <img src="{{ url('uploads/avatars') }}/{{ $user->avatar }}" class="rounded-circle" width="70px;">
-                                </td>
 
                                 <td>
                                     @if($user->isOnline())
-                                       <i style="font-size: 15px;color:green">Online</i>
+                                       <i class="fa fa-circle" style="font-size:15px;color:green"></i> Online
+                                       @else
+                                      <i class="fa fa-circle" style="font-size:15px;color:silver"></i> Ofline
                                     @endif
                                 </td>
+
+                                {{-- <td>
+                                   <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"> Kirim Pesan</i></btn>
+                                </td> --}}
 
                             </tr>
                         </tbody>

@@ -92,7 +92,7 @@
                 <center>
                 @guest
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Awas Virus Melware</button>
-                    <a href="http://localhost:3000/docs/en/doc"><button type="button" class="btn btn-info btn-lg">Documentation</button></a>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mydocs">Documentation</button>
                 </center>
                 @else
                 @if (Route::has('login'))
@@ -135,6 +135,32 @@
                         </div>
                     </div>
                 </div>
+
+                {{-- MODAL DOCS --}}
+                <div class="modal fade" id="mydocs" role="dialog">
+                    <div class="modal-dialog">
+                
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" align="center">Documentation Sanguman Master</h4>
+                                
+                            </div>
+                            <div class="modal-body">
+                                <button type="block" class="btn btn-default">
+                                    Jalankan perintah " <i>npm run start</i> " untuk membuka documentation.
+                                    <a href="http://localhost:3000/docs/en/doc">View Docs</a>
+                                </button>
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- END --}}
             </div>
         </div>
     </body>
