@@ -59,7 +59,7 @@
                 </div>
                 @if(!empty($mubadzir))
                 <div class="card-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover table-striped table-sm" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                  <th>No</th>
@@ -106,7 +106,7 @@
                 </div>
                 @if(!empty($chefs))
                 <div class="card-body">
-                    <table class="table table-hover">
+                   <table class="table table-hover table-striped table-sm" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                  <th>No</th>
