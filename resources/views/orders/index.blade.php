@@ -200,7 +200,7 @@
                                      <th>No</th>
                                      <th>Name</th>
                                      <th>Portions</th>
-                                     <th>Tanggal</th>
+                                     <th>Waktu</th>
                                 </tr>
                             </thead>
                             

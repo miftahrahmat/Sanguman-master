@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Sanguman.com/sanguman/blog</id>
+    <title>Sanguman Blog</title>
+    <updated>2019-02-02T06:00:00Z</updated>
+    <generator>Feed for Node.js</generator>
+    <link rel="alternate" href="https://Sanguman.com/sanguman/blog"/>
+    <subtitle>The best place to stay up-to-date with the latest Sanguman news and events.</subtitle>
+    <logo>https://Sanguman.com/sanguman/img/nasi.png</logo>
+    <rights>Copyright © 2019 Sanguman.co.id</rights>
+    <entry>
+        <title type="html"><![CDATA[Versi Baru 1.1]]></title>
+        <id>https://Sanguman.com/sanguman/blog/2019/02/02/versi-baru-1.2.html</id>
+        <link href="https://Sanguman.com/sanguman/blog/2019/02/02/versi-baru-1.2.html">
+        </link>
+        <updated>2019-02-02T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<pre><code class="hljs">Sanguuman versi terbaru 1.1 akan segera hadir </code></pre> <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="5"></div> ]]></summary>
+        <author>
+            <name>miftah Rahmat</name>
+            <uri>https://www.facebook.com/muslimcyberarmyxxi</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Makan Teratur]]></title>
+        <id>https://Sanguman.com/sanguman/blog/2019/02/02/makan-teratur.html</id>
+        <link href="https://Sanguman.com/sanguman/blog/2019/02/02/makan-teratur.html">
+        </link>
+        <updated>2019-02-02T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<pre><code class="hljs">Makan Sebelum Lapar, Berhenti Sebelum Kenyang
+</code></pre>
+]]></summary>
+        <author>
+            <name>Miftah Rahmat</name>
+            <uri>https://www.facebook.com/muslimcyberarmyxxi</uri>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Koki Yang Rajin]]></title>
+        <id>https://Sanguman.com/sanguman/blog/2019/02/02/koki-rajin.html</id>
+        <link href="https://Sanguman.com/sanguman/blog/2019/02/02/koki-rajin.html">
+        </link>
+        <updated>2019-02-02T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<pre><code class="hljs">    Miftah Rahmat koki terajin asal cianjur
+</code></pre>
+]]></summary>
+        <author>
+            <name>Miftah Rahmat</name>
+            <uri>https://www.facebook.com/muslimcyberarmyxxi</uri>
+        </author>
+    </entry>
+</feed>

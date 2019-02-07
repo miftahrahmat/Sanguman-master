@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
 	Route::post('profile', 'HomeController@update_avatar');
 
     Route::get('/penghargaan', 'PenghargaanController@index')->name('penghargaan')->middleware('verified');
+    // Route::get('/document','HomeController@docs')->name('document');
 
 });
 
