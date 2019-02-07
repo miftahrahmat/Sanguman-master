@@ -25,7 +25,7 @@ class OrderController extends Controller
         $orders = Order::latest()->paginate(5);
 
         $portions = Portion::whereBetween('created_at', [
-            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
+            Carbon::now()->startOfDay(), Carbon::now()->endOfDay()
         ])->paginate(5);
 
         $portionss = Portion::whereBetween('created_at', [

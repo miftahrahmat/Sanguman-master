@@ -25,16 +25,12 @@
       "doc5": {
         "title": "Fifth Document"
       },
-      "home": {
-        "title": "home"
-      },
       "profile": {
         "title": "Profile User",
         "sidebar_label": "Profile"
       }
     },
     "links": {
-      "Home": "Home",
       "Documentation": "Documentation",
       "Help": "Help",
       "Blog": "Blog"

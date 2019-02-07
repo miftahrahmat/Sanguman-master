@@ -149,8 +149,7 @@
                             </div>
                             <div class="modal-body">
                                 <button type="block" class="btn btn-default">
-                                    Jalankan perintah " <i>npm run start</i> " untuk membuka documentation.
-                                    <a href="http://localhost:3000/docs/en/doc">View Docs</a>
+                                    <a href="/sanguman-master/website/build/Sanguman-master/">View Docs</a>
                                 </button>
                             </div>
                             

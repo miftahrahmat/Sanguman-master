@@ -24,6 +24,11 @@ class HomeController extends Controller
         return view('home');
     }
 
+    // public function docs()
+    // {
+    //     return view('document');
+    // }
+
     public function anggota()
     {
         $users = User::latest()->paginate(5);

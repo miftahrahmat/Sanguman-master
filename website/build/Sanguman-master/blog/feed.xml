@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Sanguman Blog</title>
+        <link>https://Sanguman.com/sanguman/blog</link>
+        <description>The best place to stay up-to-date with the latest Sanguman news and events.</description>
+        <lastBuildDate>Sat, 02 Feb 2019 06:00:00 GMT</lastBuildDate>
+        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+        <generator>Feed for Node.js</generator>
+        <image>
+            <title>Sanguman Blog</title>
+            <url>https://Sanguman.com/sanguman/img/nasi.png</url>
+            <link>https://Sanguman.com/sanguman/blog</link>
+        </image>
+        <copyright>Copyright © 2019 Sanguman.co.id</copyright>
+        <item>
+            <title><![CDATA[Versi Baru 1.1]]></title>
+            <link>https://Sanguman.com/sanguman/blog/2019/02/02/versi-baru-1.2.html</link>
+            <guid>https://Sanguman.com/sanguman/blog/2019/02/02/versi-baru-1.2.html</guid>
+            <pubDate>Sat, 02 Feb 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<pre><code class="hljs">Sanguuman versi terbaru 1.1 akan segera hadir </code></pre> <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="5"></div> ]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Makan Teratur]]></title>
+            <link>https://Sanguman.com/sanguman/blog/2019/02/02/makan-teratur.html</link>
+            <guid>https://Sanguman.com/sanguman/blog/2019/02/02/makan-teratur.html</guid>
+            <pubDate>Sat, 02 Feb 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<pre><code class="hljs">Makan Sebelum Lapar, Berhenti Sebelum Kenyang
+</code></pre>
+]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Koki Yang Rajin]]></title>
+            <link>https://Sanguman.com/sanguman/blog/2019/02/02/koki-rajin.html</link>
+            <guid>https://Sanguman.com/sanguman/blog/2019/02/02/koki-rajin.html</guid>
+            <pubDate>Sat, 02 Feb 2019 06:00:00 GMT</pubDate>
+            <description><![CDATA[<pre><code class="hljs">    Miftah Rahmat koki terajin asal cianjur
+</code></pre>
+]]></description>
+        </item>
+    </channel>
+</rss>
