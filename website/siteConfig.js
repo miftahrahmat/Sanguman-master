@@ -23,15 +23,15 @@ const users = [
 const siteConfig = {
   title: 'Sanguman.com', // Title for your website.
   tagline: 'documentation of Sanguman',
-  url: 'sanguman.com', // Your website URL
+  url: 'https://github.com/miftahrahmat/sanguman.github.io', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'http://127.0.0.1:8000/',
-  organizationName: 'Mata Merah',
+  projectName: 'Sanguman-master',
+  organizationName: 'miftahrahmat',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -42,7 +42,7 @@ const siteConfig = {
     {page: 'help', label: 'Help'},
     {blog: true, label: 'Blog'},
     {image: true},
-    { languages: true },
+    {languages: true},
   ],
 
   // If you have users set above, you add it here:
