@@ -91,8 +91,7 @@
                 <!-- Trigger the modal with a button -->
                 <center>
                 @guest
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Awas Virus Melware</button>
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#mydocs">Documentation</button>
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Run App</button>
                 </center>
                 @else
                 @if (Route::has('login'))
@@ -106,13 +105,13 @@
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">
-                
+
                         <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <h4 class="modal-title" align="center">Sanguman Master Application</h4>
-                                
+
                             </div>
                             <div class="modal-body">
                                 <div style="margin-left: 200px;">
@@ -124,11 +123,11 @@
                                     <button type="block" class="btn btn-default">
                                         <a href="{{ route('register') }}">Daftar</a>
                                     </button>
-                                        
+
                                     @endif
                                 </div>
                             </div>
-                            
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
@@ -136,30 +135,6 @@
                     </div>
                 </div>
 
-                {{-- MODAL DOCS --}}
-                <div class="modal fade" id="mydocs" role="dialog">
-                    <div class="modal-dialog">
-                
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title" align="center">Documentation Sanguman Master</h4>
-                                
-                            </div>
-                            <div class="modal-body">
-                                <button type="block" class="btn btn-default">
-                                    <a href="/sanguman-master/website/build/Sanguman-master/">View Docs</a>
-                                </button>
-                            </div>
-                            
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{-- END --}}
             </div>
         </div>
     </body>
