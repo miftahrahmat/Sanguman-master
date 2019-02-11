@@ -23,7 +23,7 @@ const users = [
 const siteConfig = {
   title: 'Sanguman.com', // Title for your website.
   tagline: 'documentation of Sanguman',
-  url: 'https://github.com/miftahrahmat/sanguman.github.io', // Your website URL
+  url: 'https://miftahrahmat.github.io/sanguman-master/', // Your website URL
   baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
@@ -61,7 +61,7 @@ const siteConfig = {
 
 
   /* Custom fonts for website */
-  
+
   fonts: {
     myFont: [
       "Times New Roman",
@@ -72,7 +72,7 @@ const siteConfig = {
       "system-ui"
     ]
   },
-  
+
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
   copyright: `Copyright © ${new Date().getFullYear()} Sanguman.com`,
@@ -100,8 +100,8 @@ const siteConfig = {
   // Open Graph and Twitter card images.
   blogSidebarCount: '3',
   scrollToTop: true,
-  
+
 };
 
 module.exports = siteConfig;
-  
+
