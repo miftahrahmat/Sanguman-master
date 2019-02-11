@@ -3,4 +3,5 @@
 Installation :
 * create composer update
 * create php artisan key:generate
-* create php artisan migrate
+* create php artisan migrate :blush:
+
