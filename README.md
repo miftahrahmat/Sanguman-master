@@ -1,41 +1,73 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=docs/id-of-doc-to-land-on.html">
-    <script type="text/javascript">
-      window.location.href = 'docs/en/doc.html';
-    </script>
-    <title>Sanguman</title>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Instalasi · Sanguman.com</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Sanguman dirancang untuk mempermudah anda dalam melakukan pemesanan nasi.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Instalasi · Sanguman.com"/><meta property="og:type" content="website"/><meta property="og:url" content="https://miftahrahmat.github.io/sanguman-master//index.html"/><meta property="og:description" content="&lt;p&gt;Sanguman dirancang untuk mempermudah anda dalam melakukan pemesanan nasi.&lt;/p&gt;
+"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/nasi.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dark.min.css"/><link rel="alternate" type="application/atom+xml" href="https://miftahrahmat.github.io/sanguman-master/blog/atom.xml" title="Sanguman.com Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://miftahrahmat.github.io/sanguman-master/blog/feed.xml" title="Sanguman.com Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><h2 class="headerTitle">Sanguman.com</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/docs/en/doc.html" target="_self">Documentation</a></li><li class=""><a href="/en/help.html" target="_self">Help</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Mulai</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Mulai<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/docs/en/doc.html">Instalasi</a></li><li class="navListItem"><a class="navItem" href="/docs/en/doc1.html">Penggunaan Dasar</a></li><li class="navListItem"><a class="navItem" href="/docs/en/profile.html">Profile</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Penghargaan<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/en/doc2.html">Koki Terajin</a></li><li class="navListItem"><a class="navItem" href="/docs/en/doc3.html">Member paling sering makan</a></li><li class="navListItem"><a class="navItem" href="/docs/en/doc4.html">Makanan Mubadzir</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
 
-    <!-- Facebook Pixel Code -->
-		<script>
-		  !function(f,b,e,v,n,t,s)
-		  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-		  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-		  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-		  n.queue=[];t=b.createElement(e);t.async=!0;
-		  t.src=v;s=b.getElementsByTagName(e)[0];
-		  s.parentNode.insertBefore(t,s)}(window, document,'script',
-		  'https://connect.facebook.net/en_US/fbevents.js');
-		  fbq('init', '313541069294725');
-		  fbq('track', 'PageView');
-		</script>
-		<noscript><img height="1" width="1" style="display:none"
-		  src="https://www.facebook.com/tr?id=313541069294725&ev=PageView&noscript=1"
-		/></noscript>
-	<!-- End Facebook Pixel Code -->
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
 
-  </head>
-  <body>
-  	 <div id="fb-root"></div>
-             <script>(function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.2&appId=1073891869459344&autoLogAppEvents=1';
-            fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));</script>
-  </body>
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
 
-</html>
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Instalasi</h1></header><article><div><span><p>Sanguman dirancang untuk mempermudah anda dalam melakukan pemesanan nasi.</p>
+<hr>
+<li><strong>Menginstall Sanguman</strong></li>
+<br> 
+<pre><code class="hljs">1. Clone sanguman dari Github https://github.com/miftahrahmat/Sanguman-master.git
+   atau klik link github yang terdapat di footer
+
+2. Setelah proses clone berhasil, kemudian buka terminal dan lakukan &quot;composer install&quot;
+
+3. Copy file example.env kemudian save dengan format .env
+
+4. Setelah file .env dimodifikasi, buka lagi terminal dan lakukan &quot;php artisan migrate&quot;
+</code></pre>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 2019-2-4 by miftah_rahmat</em></div><div class="docs-prevnext"><a class="docs-next button" href="/docs/en/doc1.html"><span>Penggunaan Dasar</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/nasi.png" alt="Sanguman.com" width="66" height="58"/></a><div><h5>Document</h5><a href="/docs/en/doc.html">Installasi</a><a href="/docs/en/doc1.html">Cara Penggunaaan</a><a href="/docs/en/doc2.html">Penghargaan</a></div><div><h5>Komunitas</h5><a href="/en/users.html">User Showcase</a><a href="https://3.basecamp.com/4145457/buckets/10250713/chats/1487178050">Basecamp Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/miftahrahmat/Sanguman-master">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="stargazers on GitHub" aria-label="Buka sanguman di Github">Star</a></div></section><a href="https://github.com/miftahrahmat/Sanguman-master" target="_blank" rel="noreferrer noopener" class="fbOpenSource"></a><section class="copyright">Copyright © 2019 Sanguman.com</section></footer></div><script>window.fbAsyncInit = function() {FB.init({appId:'1073891869459344',xfbml:true,version:'v2.7'});};(function(d, s, id){var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) {return;}js = d.createElement(s); js.id = id;js.src = '//connect.facebook.net/en_US/sdk.js';fjs.parentNode.insertBefore(js, fjs);}(document, 'script','facebook-jssdk'));
+                </script><script>window.twttr=(function(d,s, id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return t;js=d.createElement(s);js.id=id;js.src='https://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js, fjs);t._e = [];t.ready = function(f) {t._e.push(f);};return t;}(document, 'script', 'twitter-wjs'));</script></body></html>
