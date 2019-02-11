@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="0; url=docs/id-of-doc-to-land-on.html">
     <script type="text/javascript">
-      window.location.href = 'docs/doc.html';
+      window.location.href = 'website/build/Sanguman-master/docs/en/doc.html';
     </script>
     <title>Sanguman</title>
 
