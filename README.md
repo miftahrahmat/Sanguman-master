@@ -1,6 +1,7 @@
-# sanguman
+### Welcome to Sanguman Master Application
 
-Untuk penggunaannya ada di documentation, untuk membuka documentation silahkan buka terminal dan ketikan 
-" npm run start "
-semoga berhasil :)
+Installation :
+* create composer update
+* create php artisan key:generate
+* create php artisan migrate :blush:
 
