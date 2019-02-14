@@ -20,13 +20,12 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/orders', 'OrderController@index')->middleware('verified');
     Route::post('/orders', 'OrderController@store')->name('order.store')->middleware('verified');
-    
+
     // ROUTE UNTUK PROFILE
     Route::get('profile','HomeController@profile');
 	Route::post('profile', 'HomeController@update_avatar');
 
     Route::get('/penghargaan', 'PenghargaanController@index')->name('penghargaan')->middleware('verified');
-    // Route::get('/document','HomeController@docs')->name('document');
 
 });
 

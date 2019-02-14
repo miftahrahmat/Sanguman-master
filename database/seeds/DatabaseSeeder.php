@@ -11,6 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(\App\Models\Order::class, 100)->create();
+        // $this->call(Demo::class);
     }
 }
