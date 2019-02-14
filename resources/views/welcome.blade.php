@@ -115,14 +115,18 @@
                             </div>
                             <div class="modal-body">
                                 <div style="margin-left: 200px;">
-                                    <button type="block" class="btn btn-default">
-                                        <a href="{{ route('login') }}">Login</a>
-                                    </button>
+                                    <a href="{{ route('login') }}">
+                                        <button type="block" class="btn btn-default">
+                                         Login
+                                        </button>
+                                    </a>
 
                                     @if (Route::has('register'))
-                                    <button type="block" class="btn btn-default">
-                                        <a href="{{ route('register') }}">Daftar</a>
-                                    </button>
+                                    <a href="{{ route('register') }}">
+                                        <button type="block" class="btn btn-default">
+                                        Daftar
+                                        </button>
+                                    </a>
 
                                     @endif
                                 </div>

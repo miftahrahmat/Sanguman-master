@@ -12,7 +12,7 @@ class PenghargaanController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * 
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -21,7 +21,7 @@ class PenghargaanController extends Controller
         $time = Carbon::now()->startOfMonth()->format('d M Y');
         $endtime = Carbon::now()->endOfMonth()->format('d M Y');
 
-        $portions = 
+        $portions =
                 DB::table('portions')
                 ->leftjoin('users','users.id', '=' ,'user_id')
                 ->leftjoin('orders','orders.id', '=', 'order_id')
@@ -30,10 +30,10 @@ class PenghargaanController extends Controller
                 ->whereBetween('portions.created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
                 ->groupBy('user_id')
                 ->paginate(5);
-        
+
         $portions = $portions ? $portions : null;
-           
-        $mubadzir = 
+
+        $mubadzir =
                 DB::table('portions')
                 ->leftjoin('users','users.id', '=' ,'user_id')
                 ->leftjoin('orders','orders.id', '=', 'order_id')
@@ -42,8 +42,8 @@ class PenghargaanController extends Controller
                 ->groupBy('user_id')
                 ->paginate(5);
         $mubadzir = $mubadzir ? $mubadzir : null;
-        
-        $chefs = 
+
+        $chefs =
                 DB::table('chefs')
                 ->leftjoin('users','users.id', '=' ,'user_id')
                 ->select('user_id','users.name','chefs.created_at',
@@ -57,4 +57,4 @@ class PenghargaanController extends Controller
     }
 
 }
- 
+

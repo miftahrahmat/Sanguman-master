@@ -55,19 +55,14 @@ class OrderController extends Controller
             Carbon::now()->startOfDay(), Carbon::now()->endOfDay()
         ])->get();
         $pesanan = $pesanan ? $pesanan : null;
-        
+
 
         return view('orders.index',compact('orders','portions','takelogs','myorder','mychef','myportion','portionss','chef','log','myuser','koki','pesanan'))->with('i', (request()->input('page', 2) - 1) * 1);
-        
+
     }
 
      public function store(OrderRequest $request,Order $order)
     {
-        // TODO : Lakukan Validatsi Menggunakan Form Request
-        // TODO : Menyimpan Order
-        // TODO : Tangin segala macam bentuk error, jangan sampai masuk ke error 50x, 40x
-        // TODO : Berikan Respons Redirect / View Sesuai Kebutuhan
-
         $input = $request->validated();
 
         $order = Order::create($input);
@@ -94,11 +89,6 @@ class OrderController extends Controller
 
     public function becomeChef(BecomeChefRequest $request)
     {
-        // TODO : Lakukan Validatsi Menggunakan Form Request
-        // TODO : Update order mengisi chef
-        // TODO : Tangin segala macam bentuk error, jangan sampai masuk ke error 50x, 40x
-        // TODO : Berikan Respons Redirect / View Sesuai Kebutuhan
-    
         $input = $request->validated();
 
         Chef::create($input);
@@ -113,7 +103,7 @@ class OrderController extends Controller
         TakeLog::create($log);
 
         return redirect()->to(url('orders'))->with('message','anda bisa masak sekarang');
-       
+
     }
 
     public function log()
@@ -127,15 +117,15 @@ class OrderController extends Controller
 
         $take = $request->validated();
         $portions = $take['portion_id'];
-        
+
         foreach ($portions as $index => $portion) {
             $portion = Portion::find($take['portion_id'][ $index ]);
 
             if ($portion->portion - $take['portion'][ $index ] >=0) {
                 $portion->decrement('portion',$take['portion'][ $index ]);
             }
-        } 
-         
+        }
+
         return redirect('orders')->with('log','Log Pesanan telah dikirim');
 
     }
