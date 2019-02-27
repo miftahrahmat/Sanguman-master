@@ -2,7 +2,7 @@
 title: Makan Teratur
 author: Miftah Rahmat
 twitterUsername: miftah_rahmat15
-authorURL: https://www.facebook.com/muslimcyberarmyxxi
+authorURL: https://www.facebook.com/muslimcyberarmyxxxi
 authorFBID: 100011155596206
 ---
 
