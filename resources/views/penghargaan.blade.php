@@ -5,7 +5,7 @@
     <div class="row justify-content-left">
         <div class="col-md-10">
             <div class="card">
-               
+
                 <div class="card-header">
                  Data Yang Sering Makan Priode {{ $time }} - {{ $endtime }}
                 </div>
@@ -18,7 +18,7 @@
                                  <th>Name</th>
                                  <th>Total Portion</th>
                                  <th>Tanggal</th>
-                                
+
                             </tr>
                         </thead>
                           @foreach ($portions as  $portion)
@@ -34,17 +34,17 @@
 
                             </tr>
                         </tbody>
-                        
+
                         @endforeach
                     </table>
                     @endif
-                     @if(empty($portions))    
+                     @if(empty($portions))
                         <div class="alert alert-info">
                             <center><strong>Riwayat Orders Masih Kosong</strong></center>
                         </div>
                     @endif
                     {!! $portions->links(); !!}
-                   
+
                 </div>
             </div>
         </div>
@@ -55,7 +55,7 @@
             <div class="card">
                 <div class="card-header">
                     Data Mubadzir makanan Priode {{ $time }} - {{ $endtime }}
-                    
+
                 </div>
                 @if(!empty($mubadzir))
                 <div class="card-body">
@@ -87,7 +87,7 @@
                     @endif
                     @if(empty($mubadzir))
                             <div class="alert alert-info">
-                                <center><strong>Riwayat Pesanan Masih Kosong</strong></center>
+                                <center><strong>Tidak ada makanan yang mubadzir</strong></center>
                             </div>
                         @endif
                     {!! $mubadzir->links(); !!}
@@ -102,7 +102,7 @@
             <div class="card">
                 <div class="card-header">
                     Data Koki Paling Rajin Priode {{ $time }} - {{ $endtime }}
-                    
+
                 </div>
                 @if(!empty($chefs))
                 <div class="card-body">

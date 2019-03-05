@@ -41,7 +41,7 @@ class PenghargaanController extends Controller
                 ->whereBetween('portions.created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
                 ->groupBy('user_id')
                 ->paginate(5);
-        $mubadzir = $mubadzir ? $mubadzir : null;
+
 
         $chefs =
                 DB::table('chefs')
