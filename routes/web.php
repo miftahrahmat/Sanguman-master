@@ -3,7 +3,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => false]);
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');

@@ -13,7 +13,7 @@
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="/uploads/avatars/{{ $user->avatar }}" style="border-radius:50%; width:170px; height:170px; position:relative; top:15px; left:0px;">
+                            <img src="/uploads/avatars/{{ $user->avatar }}" style="border-radius:50%; width:90px; height:93px; position:relative; top:48px; left:-20px;">
                         </div>
                         <div class="flip-card-back">
                             <!-- jika ingin menampilkan nama file nya -->
@@ -23,7 +23,7 @@
 
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                            <input type="button" value="Uploaad Gambar" 
+                            <input type="button" value="Uploaad Gambar"
                             onclick="document.getElementById('pic').click()" >
                             <input type="submit">
 
@@ -32,20 +32,42 @@
                 </div>
                     <div class="cardprofil">
                         <h1>{{ Auth::user()->name }}</h1>
-                          <p class="title">CEO & Founder, Example</p>
+                          <p class="title">CEO & Founder </p>
                           <p>Harvard University</p>
                         <div class="b" style="margin: 24px 0;">
-                            <a href="#"><i class="fa fa-dribbble"></i></a> 
-                            <a href="#"><i class="fa fa-twitter"></i></a>  
-                            <a href="#"><i class="fa fa-linkedin"></i></a>  
-                            <a href="#"><i class="fa fa-facebook"></i></a> 
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/muslimcyberarmyxxxi"><i class="fa fa-facebook"></i></a>
                         </div>
-                        <p><button class="btun">Contact</button></p>
+                        <p><button class="btun" type="button" data-toggle="modal" data-target="#myModal">Contact</button></p>
+
+                        <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+
+
+                            </div>
+                            <div class="modal-body">
+                                <div style="margin-left: 20px;">
+                                   <h4 class="modal-title">Contact {{ Auth::user()->name }}</h4>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     </div>
             </form>
             <div class="card-body" align="center">
-               
-              
+
+
             </div>
         </div>
     </div>

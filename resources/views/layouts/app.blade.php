@@ -36,7 +36,9 @@
 }
 
 .flip-card-front {
-  background-color: #bbb;
+  background-image: url('/uploads/latars/latar.jpg');
+  background-repeat: no-repeat;
+  background-size: 410px;
   color: black;
   z-index: 2;
 }
@@ -51,6 +53,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 400px;
   margin: auto;
+  margin-top: 10px;
   text-align: center;
   font-family: times-new-roman;
 }
@@ -94,7 +97,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css' integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
 
@@ -102,7 +105,8 @@
     <script src="{{ asset('js/addons/datatables.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -123,7 +127,7 @@
                 <a class="navbar-brand" href="{{ url('orders') }}" style="margin-top: 15px;">
                   <i>Order</i>
                 </a>
-                
+
                 <a class="navbar-brand" href="{{ url('/anggota') }}" style="margin-top: 15px;">
                   <i>Anggota</i>
                 </a>
@@ -132,7 +136,7 @@
                   <i>Penghargaan</i>
                 </a>
                 @endif
-               
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -162,10 +166,10 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="left:30px; margin:10px; height: 100PX;">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="left:30px; margin:10px; height: 80PX;">
 
                                     <a class="dropdown-item" href="{{ url('/profile') }}" ><ion-icon ios="ios-contact" md="md-contact"></ion-icon> Profil</a>
-                                   
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
