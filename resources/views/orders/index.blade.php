@@ -37,29 +37,29 @@
 
                         </div>
                     @endif
-                    
+
                     <h3 style="font-family: algerian"><i>Pilih Porsi</i> :</h3>
-                    <h4 style="font-family: times new roman">Tanggal <?php 
-                        echo date(' d F Y H:i', strtotime('now') ); 
+                    <h4 style="font-family: times new roman">Tanggal <?php
+                        echo date(' d F Y H:i', strtotime('now') );
                     ?></h4>
                     @if(empty($myportion))
                     <!-- STAR FORM CREATE -->
                     <form action="{{ route('order.store') }}" method="POST">
                       @csrf
-                      
+
                         <div class="porsi" style="margin-left: 45px; padding: 5px; margin-top: 15px;">
-                                              
+
                                 <input type="radio" id="a" name="total_portion" value="1">
-                                <label for="a" class="btn btn-outline-secondary">1 Porsi</label> 
+                                <label for="a" class="btn btn-outline-secondary">1 Porsi</label>
 
                                 <input type="radio" id="b" name="total_portion" value="2">
-                                <label for="b" class="btn btn-outline-secondary">2 Porsi</label> 
+                                <label for="b" class="btn btn-outline-secondary">2 Porsi</label>
 
                                 <input type="radio" id="c" name="total_portion" value="3">
-                                <label for="c" class="btn btn-outline-secondary">3 Porsi</label> 
+                                <label for="c" class="btn btn-outline-secondary">3 Porsi</label>
 
                                 <input type="radio" id="d" name="total_portion" value="4">
-                                <label for="d" class="btn btn-outline-secondary">4 Porsi</label> 
+                                <label for="d" class="btn btn-outline-secondary">4 Porsi</label>
 
 
                                 @foreach($orders as $order)
@@ -69,13 +69,15 @@
 
                                 <input type="hidden" name="portion" value="{{ $order->total_portion }}">
                                 @endforeach
-                      
- 
-                        </div>
 
+
+                        </div>
+                        @if (empty($log))
                         <div style="padding: 5px; margin-left: 50px; width: 150%;">
                              <button type="submit" name="pesan" id="Btn" class="btn btn-outline-primary" style="margin-left: 10px; width: 58%">Pesan Sekarang</button>
                         </div>
+                        @endif
+
                     </form>
                     @endif
                     <!-- END FORM  CREATE-->
@@ -87,18 +89,18 @@
                        @endforeach
                        @csrf
                         <div class="porsi" style="margin-left: 45px; padding: 5px; margin-top: 15px;">
-                        
+
                              <input type="radio" id="a" name="total_portion"  value="1" {{ ($myportion->portion == 1) ? "checked" : "" }}>
-                                <label for="a" class="btn btn-outline-secondary">1 Porsi</label> 
-                
+                                <label for="a" class="btn btn-outline-secondary">1 Porsi</label>
+
                             <input type="radio" id="b" name="total_portion"  value="2" {{ ($myportion->portion == 2) ? "checked" : "" }}>
-                               <label for="b" class="btn btn-outline-secondary">2 Porsi</label> 
-                        
+                               <label for="b" class="btn btn-outline-secondary">2 Porsi</label>
+
                             <input type="radio" id="c" name="total_portion"  value="3" {{ ($myportion->portion == 3) ? "checked" : "" }}>
-                               <label for="c" class="btn btn-outline-secondary">3 Porsi</label> 
-                        
+                               <label for="c" class="btn btn-outline-secondary">3 Porsi</label>
+
                             <input type="radio" id="d" name="total_portion"  value="4" {{ ($myportion->portion == 4) ? "checked" : "" }}>
-                                <label for="d" class="btn btn-outline-secondary">4 Porsi</label> 
+                                <label for="d" class="btn btn-outline-secondary">4 Porsi</label>
 
 
                             @foreach($portions as $portion)
@@ -108,10 +110,10 @@
 
                             <input type="hidden" name="portion" value="{{ $portion->portion }}">
                             @endforeach
-                          
-     
+
+
                         </div>
-                        
+
                         <!-- jika koki belum mulai masak masih bisa update -->
                         @if (empty($log))
                             <div style="padding: 5px; margin-left: 50px; width: 150%;">
@@ -138,7 +140,7 @@
                     @endif
                     <!-- END TRUE KOKI -->
                 </div>
-            
+
                 <div class="card-body">
                     @if (session('Selamat'))
                         <div class="alert alert-success" role="alert">
@@ -160,17 +162,17 @@
                                 <h4 style="font-family: times new roman">
                                     Click Tombol Jadi Koki jika anda siap untuk menjadi koki
                                 </h4>
-                            
+
                                 <div class="porsi" style="margin-left: 50px; padding: 5px; margin-top: 5px;">
-                            
+
                                     <form action="{{ route('order.becomeChef') }}" method="POST">
                                         @csrf
-                                
+
                                         @foreach ($orders as $order)
                                         <input type="hidden" name="order_id" value="{{ $order->id }}">
                                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                                         @endforeach
-                                       
+
                                         <button type="submit"
                                         class="btn btn-outline-primary" style="width: 100%;" onclick="myFunction()">Jadi Koki
                                         </button>
@@ -190,8 +192,8 @@
                         {{-- CEK USER APAKAH SUDAH ORDERS HARI INI ATAU BELUM --}}
                         @if(!empty($portion))
                         <strong>Data pesanan yang di masak untuk
-                            <?php 
-                                echo date(' d F Y H:i'); 
+                            <?php
+                                echo date(' d F Y H:i');
                             ?>
                         </strong>
                         <table class="table table-hover ">
@@ -203,7 +205,7 @@
                                      <th>Waktu</th>
                                 </tr>
                             </thead>
-                            
+
                             @foreach ($portions as $portion)
                             <tbody>
                                 <tr>
@@ -227,19 +229,19 @@
                                 <center><strong>Anda belum memiliki pesanan hari ini</strong></center>
                             </h6>
                         @endif
-                        
+
                     </div>
-                     
+
                 </div>
-                
+
                 <!-- END FORM JADI KOKI -->
                 @endif
                 <!-- START FORM KOKI -->
                 @if (!empty($mychef))
                     <!-- START CHECK MULAI MASAK -->
-                    
+
                     <div class="porsi" style="margin-left: 50px; padding: 5px; margin-top: 5px;">
-                    
+
                         <form action="{{ route('order.masak') }}" method="POST">
                             @csrf
                             @foreach($portions as $portion)
@@ -248,7 +250,7 @@
                             @endforeach
 
                             @if (empty($log))
-                            <button type="submit" class="btn btn-outline-primary" onclick="myFunction()" 
+                            <button type="submit" class="btn btn-outline-primary" onclick="myFunction()"
                                 style="width: 100%;">Mulai Masak
                             </button>
                             @endif
@@ -260,9 +262,9 @@
                                 </button>
                                 <center>Are you ready for nyangu !!!</center>
                             </h6>
-                          
+
                             @endif
-                            
+
                         </form>
                         <hr>
                         @if(empty($log))
@@ -275,7 +277,7 @@
                                      <th>Tanggal</th>
                                 </tr>
                             </thead>
-                            
+
                             @foreach ($portions as $portion)
                             <tbody>
                                 <tr>
@@ -290,9 +292,9 @@
                                 </tr>
                             </tbody>
                             @endforeach
-                            
+
                         </table>
-                        
+
                         {!! $portions->links() !!}
                     </div>
                     @endif
@@ -354,14 +356,14 @@
                                                  </select>
                                              </td>
                                              <td>{{ $portion->created_at }}</td>
-                                    
+
                                              <input type="hidden" name="portion_id[]" value="{{ $portion->id}}">
                                              <input type="hidden" name="taked_at" value="{{ $portion->taked_at }}">
-                                    
+
                                         </tr>
                                     </tbody>
                                     @endforeach
-                                    
+
                             </table>
                             {!! $portionss->links() !!}
                                     <button type="submit"
