@@ -123,10 +123,12 @@ class OrderController extends Controller
 
             if ($portion->portion - $take['portion'][ $index ] >=0) {
                 $portion->decrement('portion',$take['portion'][ $index ]);
+            }else{
+                return back()->with('error','Pengambilan porsi salah !!');
             }
         }
 
-        return redirect('orders')->with('log','Log Pesanan telah dikirim');
+        return redirect('orders')->with('log','Log Pesanan telah disimpan');
 
     }
 }

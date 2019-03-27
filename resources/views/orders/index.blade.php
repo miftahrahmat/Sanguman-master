@@ -183,7 +183,7 @@
                         {{-- NOTOFICATION KETIKA KOKI SEDANG MASAK --}}
                         @if (!empty($log))
                             <h6 class="alert alert-info">
-                                <center><strong>{{ $chef }}</strong> Sedang menyiapkan pesanan</center>
+                                <center><strong>{{ $chef }}</strong> sedang menyiapkan pesanan</center>
                             </h6>
                         @endif
                         {{-- END NOTIFICATION --}}
@@ -326,6 +326,16 @@
 
                             </div>
                         @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                            </div>
+                        @endif
                         <!--  -->
                         <form action="{{ route('order.log') }}" method="POST">
                             @csrf
@@ -367,7 +377,7 @@
                             </table>
                             {!! $portionss->links() !!}
                                     <button type="submit"
-                                        class="btn btn-outline-primary" style="width: 20%; margin-left: 400px;"> Lanjut
+                                        class="btn btn-outline-primary" style="width: 20%; margin-left: 370px;">Lanjut
                                     </button>
                         </form>
                         <!-- END CHECK MULAI MASAK -->
