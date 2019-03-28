@@ -18,6 +18,7 @@
                                 @if($chef >= 10)
                                     <strong class="cc">The Master of Chef</strong>
                                 @endif
+
                                 @if($chef >= 20)
                                     <strong class="cc">The Power of Chef</strong>
                                 @endif
@@ -26,9 +27,6 @@
                         </div>
                     </div>
                 </div>
-                @if($chef >= 10)
-                <h5 style="margin-left: 33px">Prestasi {{ $chef }}x Menjadi Chef</h5>
-                @endif
                 @if($chef >= 20)
                     <h5 class="dd"><marquee>Prestasi {{ Auth::user()->name }} : {{ $chef }}x Menjadi Chef</marquee></h5>
                 @endif
