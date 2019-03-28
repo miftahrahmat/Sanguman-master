@@ -18,6 +18,9 @@
                                 @if($chef >= 10)
                                     <strong class="cc">The Master of Chef</strong>
                                 @endif
+                                @if($chef >= 20)
+                                    <strong class="cc">The Power of Chef</strong>
+                                @endif
                             </h2>
                            <hr>
                         </div>
