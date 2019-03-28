@@ -9,6 +9,7 @@ use Image;
 use App\User;
 use Carbon\Carbon;
 use App\Models\Portion;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -30,12 +31,31 @@ class HomeController extends Controller
         return view('anggota',compact('users','myuser'))->with('i', (request()->input('page', 2) - 1) * 1);
     }
 
-    public function profile(){
-        return view('profile', array('user' => Auth::user()) );
+    public function profile()
+    {
+       $portions = Portion::all();
+       $portions = request()->user()->portions()->whereBetween('created_at', [
+            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
+        ])->get();
+
+       $chef = request()->user()->chefs()->count();
+       $chefs = DB::table('chefs')->select('user_id', 'created_at', [
+            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
+        ])->groupBy('user_id')->count();
+
+        return view('profile', compact('chef', 'chefs', 'portions'), array('user' => Auth::user()) );
     }
 
     public function update_avatar(Request $request ){
+        $portions = Portion::all();
+        $portions = request()->user()->portions()->whereBetween('created_at', [
+            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
+        ])->get();
 
+        $chef = request()->user()->chefs()->count();
+        $chefs = DB::table('chefs')->select('user_id', 'created_at', [
+                    Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
+                ])->groupBy('user_id')->count();
 
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
@@ -47,7 +67,7 @@ class HomeController extends Controller
             $user->save();
         }
 
-        return view('profile', array('user' => Auth::user()) );
+        return view('profile', compact('chef', 'chefs', 'portions'), array('user' => Auth::user()) );
 
     }
 

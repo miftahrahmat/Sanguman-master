@@ -3,56 +3,45 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+            function tampilkanPreview(gambar,idpreview){
+
+                var gb = gambar.files;
+
+
+                for (var i = 0; i < gb.length; i++){
+
+                    var gbPreview = gb[i];
+                    var imageType = /image.*/;
+                    var preview=document.getElementById(idpreview);
+                    var reader = new FileReader();
+
+                    if (gbPreview.type.match(imageType)) {
+
+                        preview.file = gbPreview;
+                        reader.onload = (function(element) {
+                            return function(e) {
+                                element.src = e.target.result;
+                            };
+                        })(preview);
+
+                        reader.readAsDataURL(gbPreview);
+                    }else{
+
+                        alert("Type file tidak sesuai. Khusus image.");
+                    }
+
+                }
+            }
+        </script>
 
 <style>
-
-.flip-card {
-  background-color: black;
-  width: 400px;
-  height: 200px;
-  perspective: 1000px;
-  margin-left: 260px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-.flip-card-front {
-  background-color: #bbb;
-  color: black;
-  z-index: 2;
-}
-
-.flip-card-back {
-  background-color: #2980b9;
-  color: white;
-  transform: rotateY(180deg);
-  z-index: 1;
-}
-.cardprofil {
+.card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 400px;
+  max-width: 300px;
   margin: auto;
   text-align: center;
-  font-family: times-new-roman;
+  font-family: arial;
 }
 
 .title {
@@ -60,7 +49,7 @@
   font-size: 18px;
 }
 
-.btun {
+button {
   border: none;
   outline: 0;
   display: inline-block;
@@ -73,21 +62,31 @@
   font-size: 18px;
 }
 
-.b a {
+a {
   text-decoration: none;
-  font-size: 22px;
+  font-size: 15px;
   color: black;
 }
 
- .btun:hover, a:hover {
+button:hover, a:hover {
   opacity: 0.7;
 }
-
-.contact_form input:required:valid, .contact_form textarea:required:valid {
-    background: #fff url(images/valid.png) no-repeat 98% center;
-    box-shadow: 0 0 5px #5cd053;
-    border-color: #28921f;
+.cc {
+  background-color: green;
+  color: white;
+  padding: 2px;
+  font-family: algerian;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 5px;
+  padding-top: 3px;
 }
+ .dd {
+    background-color: green;
+    color: white;
+    font-family: algerian;
+    border-radius: 4px;
+ }
 </style>
 
     <!-- CSRF Token -->
