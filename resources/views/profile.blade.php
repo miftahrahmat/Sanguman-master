@@ -31,7 +31,7 @@
                     <h5 class="dd"><marquee>Prestasi {{ Auth::user()->name }} : {{ $chef }}x Menjadi Chef</marquee></h5>
                 @endif
                 <div class="cardprofil">
-                         <table class="table table-hover">
+                         <table class="table table-hover table-striped table-border">
                             <thead>
                                 <tr align="center">
                                     <th>No</th>
