@@ -87,6 +87,70 @@ button:hover, a:hover {
     font-family: algerian;
     border-radius: 4px;
  }
+
+ * {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.con {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
 </style>
 
     <!-- CSRF Token -->
@@ -144,11 +208,12 @@ button:hover, a:hover {
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:40px; height:40px; position:relative; top:1px; left:-15px; border-radius:50%">
+                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:50px; height:50px; position:relative; top:1px; left:-15px; border-radius:50%">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="left:30px; margin:10px; height: 50PX;">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="left:30px; margin:10px; height: 80PX;">
+                                    <a class="dropdown-item" href="{{ url('/changePassword') }}" ><ion-icon ios="ios-lock" md="md-lock"></ion-icon> Ganti Password</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

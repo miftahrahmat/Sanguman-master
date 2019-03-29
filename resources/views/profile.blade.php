@@ -50,7 +50,7 @@
                             </tbody>
                             @endforeach
                         </table>
-                        <p><button class="btun" type="button" data-toggle="modal" data-target="#myModal">Ganti Profile</button></p>
+                        <p><button class="btun" type="button" data-toggle="modal" data-target="#myModal">Ubah Photo Profile</button></p>
                     <form enctype="multipart/form-data" action="/profile" method="POST">
                         <div class="modal fade" id="myModal" role="dialog">
                             <div class="modal-dialog">
@@ -69,6 +69,8 @@
                                         <br>
                                         <br>
                                         <img id="preview"  alt="" width="300px"/>
+
+
                                     </div>
 
                                     <div class="modal-footer">
@@ -81,7 +83,40 @@
                 </div>
 
             <div class="card-body" align="center">
+                @if (session('name'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('name') }}
 
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                @endif
+               <div class="con">
+                    <form method="POST" action="{{ route('changeName') }}">
+                      {{ csrf_field() }}
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="fname">Nama Lengkap</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="fname" name="name" placeholder="{{ Auth::user()->name }}">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="lname">Email</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="lname" name="lastname" readonly value="{{ Auth::user()->email }}">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <input style="margin-left: 750px; margin-top: 20px" type="submit" value="Submit">
+                      </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

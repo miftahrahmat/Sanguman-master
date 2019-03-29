@@ -8,6 +8,9 @@ Auth::routes(['verify' => false]);
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
     Route::get('/anggota', 'HomeController@anggota')->name('anggota')->middleware('verified');
+    Route::get('/changePassword','HomeController@showChangePasswordForm');
+    Route::post('/changePassword','HomeController@changePassword')->name('changePassword');
+    Route::post('/changeName','HomeController@changeName')->name('changeName');
 
     // ROUTE UNTUK ORDERS
 
