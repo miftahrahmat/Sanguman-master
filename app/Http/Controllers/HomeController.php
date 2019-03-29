@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Auth;
+use Hash;
 use Image;
 use App\User;
 use Carbon\Carbon;
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     /**
      * Show the application dashboard.
@@ -69,6 +80,43 @@ class HomeController extends Controller
 
         return view('profile', compact('chef', 'chefs', 'portions'), array('user' => Auth::user()) );
 
+    }
+
+    public function showChangePasswordForm()
+    {
+        return view('auth.changepassword');
+    }
+
+    public function changePassword(Request $request)
+    {
+        if (!(Hash::check($request->get('current-password'), Auth::user()->password))) {
+
+            return redirect()->back()->with("error","Password yang anda masukan tidak sama dengan password lama anda. Silahkan coba lagi, semoga beruntung :) ");
+        }
+        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+
+            return redirect()->back()->with("error","Password baru harus beda dengan password lama.");
+        }
+        $validatedData = $request->validate([
+            'current-password' => 'required',
+            'new-password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $user = Auth::user();
+        $user->password = bcrypt($request->get('new-password'));
+        $user->save();
+        return redirect()->back()->with("success","Password berhasil diganti !");
+    }
+
+    public function changeName(Request $request)
+    {
+        $name = $request->validate([
+            'name' => 'required'
+        ]);
+        $user = Auth::user();
+        $user->update($name);
+        $user->save();
+        return redirect()->back()->with("name","Alhamdulillah nama kamu berhasil diganti :) ");
     }
 
 }
