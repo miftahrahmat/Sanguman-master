@@ -165,6 +165,7 @@ input[type=submit]:hover {
     <script src="{{ asset('js/addons/datatables.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://unpkg.com/ionicons@4.4.8/dist/ionicons.js"></script>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -236,5 +237,5 @@ input[type=submit]:hover {
             @yield('content')
         </main>
     </div>
-</body>
+   </body>
 </html>

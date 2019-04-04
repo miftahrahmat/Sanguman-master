@@ -5,6 +5,7 @@ namespace App;
 use Cache;
 use App\Models\Chef;
 use App\Models\Portion;
+use App\Models\lapor;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -38,6 +39,11 @@ class User extends Authenticatable
     public function portions()
     {
         return $this->hasMany(Portion::class);
+    }
+
+    public function laporans()
+    {
+        return $this->hasMany(lapor::class);
     }
 
     public function chefs()

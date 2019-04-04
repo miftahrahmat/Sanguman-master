@@ -10,6 +10,7 @@ use Image;
 use App\User;
 use Carbon\Carbon;
 use App\Models\Portion;
+use App\Models\lapor;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -51,7 +52,7 @@ class HomeController extends Controller
 
        $chef = request()->user()->chefs()->count();
        $chefs = DB::table('chefs')->select('user_id', 'created_at', [
-            Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()
+            Carbon::now()->startOfYear(), Carbon::now()->endOfYear()
         ])->groupBy('user_id')->count();
 
         return view('profile', compact('chef', 'chefs', 'portions'), array('user' => Auth::user()) );

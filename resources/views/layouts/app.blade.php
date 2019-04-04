@@ -33,7 +33,7 @@
             <div class="container">
 
                 @if(Auth::check())
-                <a class="navbar-brand" href="" style="margin-top: 15px;">
+                <a class="navbar-brand" href="{{ url('/orders')}}" style="margin-top: 15px;">
                     Sanguman-master</i>
                   </a>
                 <a class="navbar-brand" href="{{ url('orders') }}" style="margin-top: 15px;">
@@ -103,5 +103,7 @@
             @yield('content')
         </main>
     </div>
+
+
 </body>
 </html>

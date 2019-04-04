@@ -5,6 +5,7 @@ namespace App\Models;
 use App\User;
 use App\Models\Order;
 use App\Models\TakeLog;
+use App\Models\lapor;
 use Illuminate\Database\Eloquent\Model;
 
 class Portion extends Model
@@ -41,10 +42,15 @@ class Portion extends Model
         return $this->hasMany(TakeLog::class);
     }
 
+    public function laps()
+    {
+        return $this->hasMany(lapor::class);
+    }
+
     public function getCreatedAtAttribute()
     {
         return \Carbon\Carbon::parse($this->attributes['created_at'])
            ->diffForHumans();
     }
-    
+
 }

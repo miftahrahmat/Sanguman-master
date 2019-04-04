@@ -6,26 +6,10 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header" style="font-family: times new roman">
-                    <!-- jika koki sudah mulai masak maka users tidak bisa update pesanan -->
-                    @if (!empty($log))
-                        <div class="alert alert-danger">
-                            <center><strong>Update pesanan di tutup</strong></center>
-                        </div>
-                    @endif
+
                 </div>
 
                 <div class="card-body">
-
-                     @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <strong>Yeeeeey !!!</strong> Sepertinya ada yang salah terhadap apa yang anda masukan :D<br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
 
                     @if (session('success'))
                         <div class="alert alert-success" role="alert">
@@ -40,7 +24,7 @@
 
                     <h3 style="font-family: algerian"><i>Pilih Porsi</i> :</h3>
                     <h4 style="font-family: times new roman">Tanggal <?php
-                        echo date(' d F Y H:i', strtotime('now') );
+                        echo date(' d F Y ', strtotime('now') );
                     ?></h4>
                     @if(empty($myportion))
                     <!-- STAR FORM CREATE -->
@@ -76,6 +60,12 @@
                         <div style="padding: 5px; margin-left: 50px; width: 150%;">
                              <button type="submit" name="pesan" id="Btn" class="btn btn-outline-primary" style="margin-left: 10px; width: 58%">Pesan Sekarang</button>
                         </div>
+                        @endif
+
+                        @if (!empty($log))
+                            <div style="padding: 5px; margin-left: 50px; width: 150%;">
+                                 <button disabled class="btn btn-outline-danger" style="margin-left: 10px; width: 58%">Update pesanan ditutup</button>
+                            </div>
                         @endif
 
                     </form>
@@ -120,6 +110,12 @@
                                  <button type="submit" id="Btn" class="btn btn-outline-primary" style="margin-left: 10px; width: 58%">Update Pesanan</button>
                             </div>
                         @endif
+                         <!-- jika koki sudah mulai masak maka users tidak bisa update pesanan -->
+                        @if (!empty($log))
+                            <div style="padding: 5px; margin-left: 50px; width: 150%;">
+                                 <button disabled class="btn btn-outline-danger" style="margin-left: 10px; width: 58%">Update pesanan ditutup</button>
+                            </div>
+                        @endif
                     </form>
                     <!-- END FORM UPDATE -->
                     @endif
@@ -135,7 +131,7 @@
                     <!-- START TRUE KOKI -->
                     @if($chef !==null)
                         <h6 class="alert alert-info">
-                            <center>Koki hari ini adalah <strong>{{ $chef }}</strong></center>
+                            <center>Koki sekarang adalah <strong>{{ $chef }}</strong></center>
                         </h6>
                     @endif
                     <!-- END TRUE KOKI -->
@@ -181,15 +177,16 @@
                          <!-- END FALSE KOKI -->
                         </form>
                         {{-- NOTOFICATION KETIKA KOKI SEDANG MASAK --}}
-                        @if (!empty($log))
-                            <h6 class="alert alert-info">
-                                <center><strong>{{ $chef }}</strong> sedang menyiapkan pesanan</center>
-                            </h6>
-                        @endif
+                        {{-- @if (!empty($log)) --}}
+                        {{-- <h6 style="font-family: times new roman" class="alert alert-info">
+
+                        </h6>
+                        @endif --}}
                         {{-- END NOTIFICATION --}}
                         <hr>
 
                         {{-- CEK USER APAKAH SUDAH ORDERS HARI INI ATAU BELUM --}}
+                        @if($mychef ==true)
                         @if(!empty($portion))
                         <strong>Data pesanan yang di masak untuk
                             <?php
@@ -223,6 +220,71 @@
                         </table>
                         {!! $portions->links() !!}
                         @endif
+                        @endif
+
+                        {{-- Tampilan pemesan --}}
+
+                        @if($mychef ==null)
+                        @if(!empty($portion))
+                        @if (session('lap'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('lap') }}
+
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                            </div>
+                        @endif
+                        <strong>Data pesanan anda tanggal
+                            <?php
+                                echo date(' d F Y H:i');
+                            ?>
+                        </strong>
+                        <form action="{{ route('order.laporan') }}" method="POST">
+                            @csrf
+                            <table class="table table-hover table">
+                                    <thead>
+                                        <tr>
+                                             <th>No</th>
+                                             <th>Name</th>
+                                             <th>Portions</th>
+                                             <th>Take</th>
+                                             <th>Option</th>
+                                        </tr>
+                                    </thead>
+                                    @foreach ($port as $my)
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $my->user->name }}</td>
+                                                <td>{{ $my->portion }}</td>
+                                                <td>
+                                                    <select name="portion">
+                                                         <option value="0">0</option>
+                                                         <option value="1">1</option>
+                                                         <option value="2">2</option>
+                                                         <option value="3">3</option>
+                                                         <option value="4">4</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    @if($log==true)<button type="submit" class="btn btn-primary"> Kirim </button>@endif
+                                                    @if($log ==null)
+                                                    <button disabled class="btn btn-primary"> Kirim </button>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    @endforeach
+                            </table>
+
+                            {!! $portions->links() !!}
+                        </form>
+                        @endif
+                        @endif
+
+                        {{--  --}}
 
                         @if(empty($portion))
                             <h6 class="alert alert-info">
@@ -255,15 +317,20 @@
                             </button>
                             @endif
 
-                            @if (!empty($log))
-                            <h6 style="font-family: times new roman" class="alert alert-info">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                <center>Are you ready for nyangu !!!</center>
-                            </h6>
+                            @if(!empty($lapo))
+                        <div class="alert alert-info">
+                            <strong>Data orang yang sudah mengambil pesanan</strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            @foreach ($lapo as $lap)
+                                <ul>
+                                    <li>{{ $lap->user->name }} {{ $lap->portion }} porsi</li>
+                                </ul>
+                            @endforeach
 
-                            @endif
+                        </div>
+                        @endif
 
                         </form>
                         <hr>
@@ -274,7 +341,7 @@
                                      <th>No</th>
                                      <th>Name</th>
                                      <th>Portions</th>
-                                     <th>Tanggal</th>
+                                     <th>Waktu</th>
                                 </tr>
                             </thead>
 
@@ -336,7 +403,7 @@
 
                             </div>
                         @endif
-                        <!--  -->
+
                         <form action="{{ route('order.log') }}" method="POST">
                             @csrf
                             <dtrong>Data Pesanan yang harus di siapkan</dtrong>

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\BecomeChefRequest;
 use App\Http\Requests\OrderRequest;
 use App\Http\Requests\TakeLogRequest;
+use App\Http\Requests\LapRequest;
 use App\Models\Chef;
 use App\Models\Order;
 use App\Models\Portion;
 use App\Models\TakeLog;
+use App\Models\lapor;
 use App\User;
 use Auth;
 use Carbon\Carbon;
@@ -56,8 +58,14 @@ class OrderController extends Controller
         ])->get();
         $pesanan = $pesanan ? $pesanan : null;
 
+        $port = request()->user()->portions()->whereDate('created_at',  Carbon::now())->get();
 
-        return view('orders.index',compact('orders','portions','takelogs','myorder','mychef','myportion','portionss','chef','log','myuser','koki','pesanan'))->with('i', (request()->input('page', 2) - 1) * 1);
+        $lapo = lapor::whereBetween('created_at', [
+            Carbon::now()->startOfHour(), Carbon::now()->endOfHour("60")
+        ])->get();
+        $lapo = $lapo ? $lapo : null;
+
+        return view('orders.index',compact('orders','portions','takelogs','myorder','mychef','myportion','portionss','chef','log','myuser','koki','pesanan', 'port', 'lapo'))->with('i', (request()->input('page', 2) - 1) * 1);
 
     }
 
@@ -129,6 +137,14 @@ class OrderController extends Controller
         }
 
         return redirect('orders')->with('log','Log Pesanan telah disimpan');
+    }
 
+    public function laporan(Request $request)
+    {
+        $chef = Chef::whereDate('created_at', Carbon::now())->first();
+        $chef = ($chef) ? $chef->user->name : null;
+        $lap = lapor::create(['portion' => $request->portion, 'user_id' => auth()->user()->id]);
+
+        return redirect('orders')->with('lap', 'Success, Pesanan akan berkurang setelah chef '.$chef.' meng-cofirm laporan anda');
     }
 }
