@@ -14,13 +14,13 @@
                         <div class="flip-card-front">
                             <img src="/uploads/avatars/{{ $user->avatar }}" style="border-radius:50%; width:70px; height:70px; position:relative; top:75px; left:-20px"/>
                              <h2 style="margin-left: 70px; margin-bottom: -9px; margin-top: 20px;">
-                                Catatan {{ Auth::user()->name }}
+                                {{ Auth::user()->name }}
                                 @if($chef >= 10)
                                     <strong class="cc">The Master of Chef</strong>
                                 @endif
 
                                 @if($chef >= 20)
-                                    <strong class="cc">The Power of Chef</strong>
+                                    <strong class="cc">The Core of Chef</strong>
                                 @endif
                             </h2>
                            <hr>
@@ -35,7 +35,7 @@
                             <thead>
                                 <tr align="center">
                                     <th>No</th>
-                                    <td>Riwayat Pesana makanan</td>
+                                    <td>Riwayat Pesanan makanan</td>
                                     <td>Riwayat Makanan Tersisa</td>
                                 </tr>
                             </thead>
